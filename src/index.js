@@ -15,6 +15,6 @@ export {
 // };
 
 */
-import FnCacheAdaptor from './modules/adaptors/FnCache.js';
-const FnCache = FnCacheAdaptor();
-export {FnCache};
+import FnDatabaseAdapter from './modules/adaptors/FnDB.js';
+const FnDBAdaptor = FnCacheAdaptor();
+export {FnDBAdaptor};
