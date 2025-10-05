@@ -1,14 +1,12 @@
-const FnAdaptorConfig = {
-    "cache": 'redis',
-    "database": 'firestore',
-    "fintect": {
-        "provider":"stripe",
-        "publicKey":"pk_test_51SDBtDHBaXygfJMcqjhrhlApWtfqlvVtKmfyfYkFnte2pK5rEFsOgC35Rd6rTiBohlYiwmmhgC9no0TjGGfNTsMy00o97ToItX",
-        "secretKey":"sk_test_51SDBtDHBaXygfJMcJelSUHjTOSVm9soV5cFud9Hjgx2ySU9pEFMp5i61yuHo1XuKSJcdAdasRpTUWjEcurBsnadv00lDAOlQZN"
-    }
-}
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-export default FnAdaptorConfig;
-export {
-    FnAdaptorConfig
-};
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export const DATABASE_TYPE = process.env.DATABASE_TYPE || 'firestore'; 
+
+// Add a default cache expiry time in seconds (e.g., 1 hour)
+export const DEFAULT_CACHE_EXPIRY = parseInt(process.env.DEFAULT_CACHE_EXPIRY, 10) || 3600;
+
+export const serviceAccountPath = path.resolve(__dirname, 'serviceAccountKey.json');
